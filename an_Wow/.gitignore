@@ -4,7 +4,7 @@
 #鍵ファイルはプッシュを行わない
 *.pem
 */*.pem
-#hostファイルのプッシュを行わない
+#host/hostファイルのプッシュを行わない
 hosts/hosts
 #DS_storeのプッシュは行わない
 .DS_Store
