@@ -1,0 +1,17 @@
+#csv系のプッシュはしない
+*.csv
+*/*.csv
+#鍵ファイルはプッシュを行わない
+*.pem
+*/*.pem
+#hostファイルのプッシュを行わない
+hosts/hosts
+#DS_storeのプッシュは行わない
+.DS_Store
+#tfファイルのプッシュを行わない
+*.tf
+*/*.tf
+#handsonのプッシュを行わない
+*/handson
+#.vscode
+.vscode
