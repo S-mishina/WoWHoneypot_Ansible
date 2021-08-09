@@ -1,0 +1,36 @@
+---
+
+#==========システム導入編==========#
+- name: ubuntu git_install
+  apt:
+    name: git
+    state: latest
+  become: yes
+
+  #ユーザー直下に落とす
+- name: git_clone_wowhoneypot
+  command: git clone https://github.com/morihisa/WOWHoneypot.git wowhoneypot
+  become: yes
+
+- name: service Wowhonepot
+  become: yes
+  copy:
+    src: ../files/wowhoneypot.service
+    dest: /etc/systemd/system/wowhoneypot.service
+
+- name: Wowhonepot.sh
+  copy:
+    src: ../files/wowhoneypot.sh
+    dest: /home/ubuntu/wowhoneypot.sh
+  become: yes
+
+- name: chmod +x wowhoneypot.sh
+  command: chmod +x wowhoneypot.sh
+  become: yes
+
+#==========実行編==========#
+
+- name: start wowhoneypot.service
+  command: systemctl start wowhoneypot.service
+  become: yes
+
