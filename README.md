@@ -23,4 +23,6 @@ ansible_ssh_private_key_file='key'
 $ ansible-playbook site.yml -i hosts/hosts
 </pre>
 ## 参考サイト
-https://qiita.com/hogehuga/items/cad931485f58ae487d53
+https://qiita.com/hogehuga/items/cad931485f58ae487d53<br>
+https://qiita.com/asmg07/items/1b813f47cd091f1f8819
+
