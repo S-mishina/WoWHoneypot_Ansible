@@ -1,6 +1,9 @@
 # WoWHoneypot_Ansible
 WoWHoneypot_Ansible
 
+## WoWHoneypotとは？
+https://github.com/morihisa/WOWHoneypot
+
 ## 環境
 ubuntu20.04
 
