@@ -11,6 +11,9 @@
     name: awscli
     state: latest
   become: yes
+- name: time JST
+  command: git clone timedatectl set-timezone Asia/Tokyo
+  become: yes
 
   #ユーザー直下に落とす
 - name: git_clone_wowhoneypot
