@@ -15,3 +15,5 @@ hosts/hosts
 */handson
 #.vscode
 .vscode
+#fileのs3_upload.sh
+files/s3_upload.sh
