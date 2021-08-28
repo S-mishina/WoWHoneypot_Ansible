@@ -6,6 +6,11 @@
     name: git
     state: latest
   become: yes
+- name: ubuntu git_install
+  apt:
+    name: awscli
+    state: latest
+  become: yes
 
   #ユーザー直下に落とす
 - name: git_clone_wowhoneypot
