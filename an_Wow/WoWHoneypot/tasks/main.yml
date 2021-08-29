@@ -1,23 +1,28 @@
 ---
 
 #==========システム導入編==========#
+#aptのアップデートが必要
+- name: apt update
+  apt:
+    update_cache: yes
+  become: yes
 - name: ubuntu git_install
   apt:
     name: git
     state: latest
   become: yes
-- name: ubuntu git_install
-  apt:
-    name: awscli
-    state: latest
-  become: yes
+
 - name: time JST
-  command: git clone timedatectl set-timezone Asia/Tokyo
+  command: timedatectl set-timezone Asia/Tokyo
   become: yes
 
-  #ユーザー直下に落とす
+#ユーザー直下に落とす
 - name: git_clone_wowhoneypot
   command: git clone https://github.com/morihisa/WOWHoneypot.git wowhoneypot
+  become: yes
+
+- name: chmod 707 /home/ubuntu/wowhoneypot/log
+  command: chmod 707 -R /home/ubuntu/wowhoneypot/log
   become: yes
 
 - name: service Wowhonepot
@@ -34,6 +39,16 @@
 
 - name: chmod +x wowhoneypot.sh
   command: chmod +x wowhoneypot.sh
+  become: yes
+
+- name: Wowhonepot.sh
+  copy:
+    src: ../files/s3_upload.sh
+    dest: /home/ubuntu/wowhoneypot/log
+  become: yes
+
+- name: chmod 707 /home/ubuntu/wowhoneypot/log
+  command: chmod 707 /home/ubuntu/wowhoneypot/log/s3_upload.sh
   become: yes
 
 #==========実行編==========#
