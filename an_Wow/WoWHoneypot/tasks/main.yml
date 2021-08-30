@@ -12,6 +12,10 @@
     state: latest
   become: yes
 
+- name: port 8080-80 portmap
+  command: iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+  become: yes
+
 - name: time JST
   command: timedatectl set-timezone Asia/Tokyo
   become: yes
